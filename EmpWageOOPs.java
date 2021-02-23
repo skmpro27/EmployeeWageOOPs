@@ -11,11 +11,13 @@ public class EmpWageOOPs {
 		WAGE_PER_HOUR = perHr;
 	}
 
-	public int EmpWageMonth() {
+	public int EmpWageCondition() {
 
 		int empHrs = 0;
-		for (int i = 0; i < 20; i++)
+		int workingDay = 0;
+		while (workingDay < 20 && empHrs < 100)
 		{
+			workingDay++;
 			int empCheck = (int) (Math.random() * 3);
 			switch (empCheck)
 			{
@@ -29,13 +31,17 @@ public class EmpWageOOPs {
 
 				default:
 			}
+			if (empHrs > 100)
+				empHrs = 100;
 		}
+		System.out.println("Number of Working Days: " + workingDay);
+		System.out.println("Number of Working Hours: " + empHrs);
 		return empHrs * WAGE_PER_HOUR;
 	}
 
 	public static void main(String args[]) {
 
 		EmpWageOOPs obj = new EmpWageOOPs(20);
-		System.out.println("Employee wages for a month: " + obj.EmpWageMonth());
+		System.out.println("Employee wages: " + obj.EmpWageCondition());
 	}
 }
