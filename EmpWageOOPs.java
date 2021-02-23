@@ -11,22 +11,24 @@ public class EmpWageOOPs {
 		WAGE_PER_HOUR = perHr;
 	}
 
-	public int EmpWage() {
+	public int EmpWageMonth() {
 
 		int empHrs = 0;
-		int empCheck = (int) (Math.random() * 3);
-		switch (empCheck)
+		for (int i = 0; i < 20; i++)
 		{
-			case IS_FULL_TIME:
-				empHrs = 8;
-				break;
+			int empCheck = (int) (Math.random() * 3);
+			switch (empCheck)
+			{
+				case IS_FULL_TIME:
+					empHrs += 8;
+					break;
 
-			case IS_PART_TIME:
-				empHrs = 4;
-				break;
+				case IS_PART_TIME:
+					empHrs += 4;
+					break;
 
-			default:
-				empHrs = 0;
+				default:
+			}
 		}
 		return empHrs * WAGE_PER_HOUR;
 	}
@@ -34,6 +36,6 @@ public class EmpWageOOPs {
 	public static void main(String args[]) {
 
 		EmpWageOOPs obj = new EmpWageOOPs(20);
-		System.out.println("Employee daily wage: " + obj.EmpWage());
+		System.out.println("Employee wages for a month: " + obj.EmpWageMonth());
 	}
 }
